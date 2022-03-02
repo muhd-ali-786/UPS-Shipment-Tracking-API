@@ -1,0 +1,71 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: Arial;
+}
+header{
+    padding:20px 10%;
+    text-align:center;
+}
+@mixin boxes {
+    padding:20px;
+    width:400px;
+    display:grid;
+    justify-content: center;
+
+    h2{
+        margin-bottom: 10px;
+    }
+    textarea{
+        line-height: 2em;
+        display: block;
+        margin-bottom: 10px;
+        padding:5px 10px;
+    }
+    .boxes{
+        line-height: 2em;
+        display: block;
+        margin-bottom: 10px;
+        display:grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        column-gap: 20px;
+        
+        
+    }
+}
+
+
+
+.container{
+    display:grid;
+    grid-template-columns:1fr;
+    justify-content: center;
+    
+    padding:20px 10%;
+    
+    #input_box{
+        @include boxes;
+        background-color: #c32145;
+        justify-self: center;
+        
+       button{
+           padding:5px 30px
+       }
+       
+        
+        
+    }
+    #output_box{
+        @include boxes;
+        justify-self: center;
+        background-color: #abcd12;
+        width:100%;
+        
+        
+        ul{
+            list-style-type: none;
+        }
+       
+    }
+}

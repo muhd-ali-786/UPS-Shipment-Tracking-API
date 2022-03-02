@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style2.css">
+    <title>BI Reports</title>
+</head>
+<body>
+    <header>
+        <h1>Bi Report Links</h1>
+    </header>
+    <section>
+
+    <% if(response_msg.status == 'error'){ %>
+
+        <h2><%= response_msg.content %></h2>
+
+
+    <% }else{ %>
+        <table class="link_table" >
+            <thead>
+                <tr>
+                    <th>S.no</th>
+                    <th>Report Name</th>
+                    <th>Report Path</th>
+                    <th>Report link</th>    
+                </tr>
+            </thead>
+            <tbody>
+        <% for(let data of response_msg.content){ %>
+            
+             <tr>
+                 <td><%= data.link_id %></td>
+                 <td><%= data.report_name %></td>
+                 <td><%= data.bi_path %></td>
+                 <td><a href=<%= data.report_link %> target='_blank'>Click Here</a></td>
+             </tr>   
+                
+
+
+        <% } %>
+            </tbody>
+         </table>
+
+
+       <% } %> 
+    </section>
+</body>
+</html>

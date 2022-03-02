@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result Page</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+   
+    <header>
+        <h1>UPS TRACKING</h1>
+    </header>
+    <div class="container">
+        
+        <div id="output_box">
+            <h2>Output</h2>
+            <div class="boxes">
+                <textarea class = 'ta'  cols="50" rows='25' disabled draggable="false"></textarea>
+                
+                <textarea class = 'ta'  cols="50" rows='25' disabled draggable="false"></textarea>
+
+                <textarea class = 'ta'  cols="50" rows='25' disabled draggable="false"></textarea>
+
+
+                <textarea class = 'ta'  cols="50" rows='25' disabled draggable="false"></textarea>
+                            
+            </div >
+        </div>
+    </div>
+
+    <script>
+        let ta = document.querySelectorAll('.ta')
+        for(let data of <%- JSON.stringify(rs || null) %>){
+
+            let dd = data.content.delivDate;
+            if(dd!="Not Available"){
+                dd= dd.substring(4,6)+'/'+dd.substring(6)+'/'+dd.substring(0,4);
+            }
+
+            ta[0].innerHTML+= data.cur_trk_no
+           
+            ta[1].innerHTML+= data.content.status+'\n'
+            ta[2].innerHTML+= data.content.address+'\n'
+            ta[3].innerHTML+= dd+'\n'
+            
+        }
+    </script>
+</body>
+</html>
